@@ -1,20 +1,23 @@
 class Kontak {
-  final int id;
+  // kemungkinan tak memasukkan id
+  // ketika input data baru
+  late final int? id;
   final String nama, telepon, email;
 
   Kontak(
-      {required this.id,
+      {this.id,
         required this.nama,
         required this.telepon,
         required this.email});
 
   // mengubah data menjadi Map
   // untuk disimpan dalam database
+  // tanpa id
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
       'nama': nama,
-      'telepon': email,
+      'telepon': telepon,
+      'email': email,
     };
   }
 
