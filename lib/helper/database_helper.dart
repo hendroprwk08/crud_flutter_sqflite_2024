@@ -74,7 +74,7 @@ class DatabaseHelper {
     return Kontak.fromMap(maps.first);
   }
 
-  Future<int> updateContact(Kontak object) async {
+  Future<int> update(Kontak object) async {
     final db = await database;
     return await db.update(_tableName, object.toMap(), where: '$_columnId = ?', whereArgs: [object.id]);
   }
