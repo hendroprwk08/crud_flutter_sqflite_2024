@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         centerTitle: true,
-        title: const Text('SQFLite'),
+        title: const Text('SQFLite', style: TextStyle(color: Colors.white),),
       ),
       body: _kontakList.length == 0
           ? Center(
