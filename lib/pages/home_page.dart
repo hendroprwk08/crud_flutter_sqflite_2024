@@ -37,8 +37,8 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         title: const Text('SQFLite', style: TextStyle(color: Colors.white),),
       ),
-      body: _kontakList.length == 0
-          ? Center(
+      body: _kontakList.isEmpty
+          ? const Center(
               child: Text('Kosong'),
             )
           : ListView.builder(
@@ -138,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                                   await _databaseHelper.update(model);
                                   _getData();
 
-                                  Navigator.pop(context);
+                                  if (context.mounted) Navigator.of(context).pop();
                                 },
                               ),
                             ],
@@ -149,7 +149,7 @@ class _HomePageState extends State<HomePage> {
                     title: Text(kontak.nama),
                     subtitle: Text('${kontak.telepon} - ${kontak.email}'),
                     trailing: IconButton(
-                        icon: Icon(Icons.block),
+                        icon: const Icon(Icons.block),
                         onPressed: () {
                           _databaseHelper.delete(kontak.id!);
                           _getData();
@@ -240,7 +240,7 @@ class _HomePageState extends State<HomePage> {
                         await _databaseHelper.insert(model);
                         _getData();
 
-                        Navigator.pop(context);
+                        if (context.mounted) Navigator.of(context).pop();
                       },
                     ),
                   ],
